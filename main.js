@@ -1,30 +1,41 @@
-var a = document.querySelector("a");
+var a = document.getElementsByTagName('a');
+var main = document.querySelector('#daBox');
 
-a.addEventListener("click", (e) =>{
-    e.preventDefault();
-    var div = document.createElement("div");
-    var p = document.createElement("p");
-    var buttonOk = document.createElement("button");
-    var buttonCancel = document.createElement("button");
+var xhr = new XMLHttpRequest;
 
-    p.innerText = "Esta seguro que quiere salir de la pagina?";
-    buttonOk.innerText = "Si, claro que si.";
-    buttonOk.id = "ok";
-    buttonCancel.innerText = "No, ni loco";
-    buttonCancel.id = "cancel";
+xhr.addEventListener('readystatechange', ()=>{
+    console.log(`El estado actual de XHR es ${xhr.readyState}`);
+});
 
+xhr.addEventListener('load', ()=>{
+    if(xhr.readyState == 4 && xhr.status == 200){
+        main.innerHTML = xhr.response;
+    }
+});
 
-    document.body.appendChild(div);
-    div.appendChild(p);
-    div.appendChild(buttonOk);
-    div.appendChild(buttonCancel);
+for(let i = 0; i < a.length ; i++){
 
-    document.body.addEventListener("click", (e)=>{
-        if(e.target.id == "ok"){
-            window.location = "https://www.google.com";
-        }else if(e.target.id == "cancel"){
-            document.body.removeChild(div);
+    a[i].addEventListener("click", (e) =>{
+        e.preventDefault();
+
+        switch(a[i]){
+            case a[0]:
+                xhr.open('get', 'perfil.html');
+                xhr.send();
+            break;
+        
+            case a[1]:
+                xhr.open('get', 'portfolio.html');
+                xhr.send();
+            break;
+        
+            case a[2]:
+                xhr.open('get', 'contacto.html');
+                xhr.send();
+            break;
+            
         }
-    })
-
-})
+        
+    });
+    
+}

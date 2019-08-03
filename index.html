@@ -2,12 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <a href="https://www.opera.com">Ir a opera</a>
-    <script src="main.js"></script>
+    <header>
+            <h1>SPA</h1>
+        <nav>
+            <a href="perfil.html" class="links">perfil</a>
+            <a href="portfolio.html" class="links">portfolio</a>
+            <a href="contacto.html" class="links">contacto</a>
+        </nav>
+    </header>
+    <main id="daBox">
+        <h2>Home</h2>
+    </main>
+    <footer>
+        <p>&copy; Copyright - 2019</p>
+    </footer>
+    <script src="main.js">
+    /*
+    
+        1- Agarrar todos los links
+        2- recorrer todos los links y asignarles un evento de click. El callback de todos los links tiene que EL MISMO
+        3 - Cancelar el default
+        4 - Iniciar un pedido XHR al href del link que corresponda
+        5 - Con la respuesta , modificar el contenido del <main> 
+    
+    */
+    </script>
 </body>
 </html>
